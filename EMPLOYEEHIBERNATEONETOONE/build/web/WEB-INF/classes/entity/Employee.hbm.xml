@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/05/2016 10:44:21 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Employee" table="employee" catalog="employees" optimistic-lock="version">
+        <id name="employeeId" type="java.lang.Integer">
+            <column name="employee_id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstname" type="string">
+            <column name="firstname" length="45" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" length="45" />
+        </property>
+        <property name="birthDate" type="date">
+            <column name="birth_date" length="10" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="15" not-null="true" />
+        </property>
+        <one-to-one name="employeedetail" class="entity.Employeedetail" cascade="all"></one-to-one>
+    </class>
+</hibernate-mapping>
